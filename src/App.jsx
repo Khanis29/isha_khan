@@ -1,10 +1,35 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Github, Linkedin, FileText, ExternalLink, ChevronRight, GraduationCap, BarChart3, Brain, Newspaper, Briefcase, BookOpen, Award, Code2, Home, FolderKanban, ScrollText, UserCircle2 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+function Card({ className = "", children }) {
+  return <div className={className}>{children}</div>;
+}
 
+function CardContent({ className = "", children }) {
+  return <div className={className}>{children}</div>;
+}
+
+function Button({ className = "", variant = "default", children, ...props }) {
+  const variantClasses =
+    variant === "outline"
+      ? "border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50"
+      : variant === "ghost"
+      ? "bg-transparent text-zinc-900 hover:bg-zinc-100"
+      : "bg-zinc-950 text-white hover:bg-zinc-800";
+
+  return (
+    <button
+      className={`${variantClasses} inline-flex items-center justify-center transition ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+function Badge({ className = "", children }) {
+  return <span className={className}>{children}</span>;
+}
 const navItems = [
   { id: "home", label: "Home", icon: Home },
   { id: "cv", label: "CV", icon: UserCircle2 },
