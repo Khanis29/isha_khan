@@ -94,11 +94,11 @@ function SectionHeader({ eyebrow, title, subtitle }) {
       <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
         {eyebrow}
       </div>
-      <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+      <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
         {title}
       </h2>
       {subtitle ? (
-        <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-600 sm:text-base">
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
           {subtitle}
         </p>
       ) : null}
@@ -108,11 +108,11 @@ function SectionHeader({ eyebrow, title, subtitle }) {
 
 function TopNav({ active, setActive }) {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <div>
-          <div className="text-sm font-semibold text-zinc-950">Isha Khan</div>
-          <div className="text-xs text-zinc-500">
+          <div className="text-sm font-semibold text-zinc-100">Isha Khan</div>
+          <div className="text-xs text-zinc-400">
             Economics • Mathematics • Data Science
           </div>
         </div>
@@ -126,8 +126,8 @@ function TopNav({ active, setActive }) {
                 onClick={() => setActive(s)}
                 className={`rounded-full px-4 py-2 text-sm transition ${
                   isActive
-                    ? "bg-zinc-950 text-white"
-                    : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950"
+                    ? "bg-white text-black"
+                    : "text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100"
                 }`}
               >
                 {s}
@@ -143,7 +143,7 @@ function TopNav({ active, setActive }) {
 function HomePage({ setActive }) {
   return (
     <div className="space-y-16">
-      <section className="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+      <section className="rounded-[2rem] border border-zinc-800 bg-zinc-950 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="overflow-hidden rounded-[2rem]">
             <img
@@ -154,20 +154,20 @@ function HomePage({ setActive }) {
           </div>
 
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs text-zinc-300">
               <GraduationCap className="h-3.5 w-3.5" />
               Quinnipiac University
             </div>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-zinc-100 sm:text-5xl lg:text-6xl">
               Isha Khan
             </h1>
 
-            <p className="mt-4 text-lg text-zinc-600">
+            <p className="mt-4 text-lg text-zinc-400">
               Economics, mathematics, and data science.
             </p>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-600">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400">
               I build empirical research projects in macroeconomics,
               international trade, machine learning, and computational text
               analysis.
@@ -176,14 +176,14 @@ function HomePage({ setActive }) {
             <div className="mt-8 flex flex-wrap gap-3">
               <button
                 onClick={() => setActive("Research")}
-                className="rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
+                className="rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-zinc-200"
               >
                 Research
               </button>
 
               <button
                 onClick={() => setActive("Projects")}
-                className="rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+                className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:bg-zinc-900"
               >
                 Projects
               </button>
@@ -192,7 +192,7 @@ function HomePage({ setActive }) {
                 href="/Isha_Khan_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+                className="inline-flex items-center rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:bg-zinc-900"
               >
                 View CV
               </a>
@@ -203,7 +203,7 @@ function HomePage({ setActive }) {
                 (item) => (
                   <span
                     key={item}
-                    className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700"
+                    className="rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-300"
                   >
                     {item}
                   </span>
@@ -239,13 +239,13 @@ function ResearchPage() {
         subtitle="Current project papers and research-oriented work."
       />
 
-      <div className="mb-8 flex max-w-md items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 shadow-sm">
-        <Search className="h-4 w-4 text-zinc-400" />
+      <div className="mb-8 flex max-w-md items-center gap-3 rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-3 shadow-sm">
+        <Search className="h-4 w-4 text-zinc-500" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search papers or topics"
-          className="w-full bg-transparent text-sm outline-none placeholder:text-zinc-400"
+          className="w-full bg-transparent text-sm text-zinc-100 outline-none placeholder:text-zinc-500"
         />
       </div>
 
@@ -253,16 +253,16 @@ function ResearchPage() {
         {filtered.map((paper) => (
           <Card
             key={paper.title}
-            className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
+            className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 shadow-sm"
           >
             <CardContent className="p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-500">
+                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs text-zinc-400">
                     <BookOpen className="h-3.5 w-3.5" />
                     {paper.status}
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-zinc-950">
+                  <h3 className="text-2xl font-semibold tracking-tight text-zinc-100">
                     {paper.title}
                   </h3>
                   <div className="mt-1 text-sm text-zinc-500">{paper.year}</div>
@@ -270,13 +270,13 @@ function ResearchPage() {
 
                 <a
                   href={paper.link}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-zinc-100 hover:text-zinc-300"
                 >
                   Related repo <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
 
-              <p className="mt-5 text-sm leading-8 text-zinc-600">
+              <p className="mt-5 text-sm leading-8 text-zinc-400">
                 {paper.summary}
               </p>
 
@@ -284,7 +284,7 @@ function ResearchPage() {
                 {paper.tags.map((tag) => (
                   <Badge
                     key={tag}
-                    className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700"
+                    className="rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-300"
                   >
                     {tag}
                   </Badge>
@@ -333,26 +333,26 @@ function ProjectsPage() {
           return (
             <Card
               key={project.title}
-              className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
+              className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 shadow-sm"
             >
               <CardContent className="p-6">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-black">
                   <Icon className="h-5 w-5" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-zinc-950">
+                <h3 className="text-xl font-semibold text-zinc-100">
                   {project.title}
                 </h3>
                 <div className="mt-1 text-sm text-zinc-500">
                   {project.subtitle}
                 </div>
-                <p className="mt-4 text-sm leading-7 text-zinc-600">
+                <p className="mt-4 text-sm leading-7 text-zinc-400">
                   {project.description}
                 </p>
 
                 <a
                   href={project.link}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-zinc-100 hover:text-zinc-300"
                 >
                   View repository <ExternalLink className="h-4 w-4" />
                 </a>
@@ -376,22 +376,22 @@ function ProjectsPage() {
             {repos.slice(0, 6).map((repo) => (
               <Card
                 key={repo.id}
-                className="rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm"
+                className="rounded-[1.5rem] border border-zinc-800 bg-zinc-950 shadow-sm"
               >
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h3 className="text-lg font-semibold text-zinc-950">
+                      <h3 className="text-lg font-semibold text-zinc-100">
                         {repo.name}
                       </h3>
-                      <p className="mt-2 text-sm leading-7 text-zinc-600">
+                      <p className="mt-2 text-sm leading-7 text-zinc-400">
                         {repo.description || "Public repository"}
                       </p>
                     </div>
 
                     <a
                       href={repo.html_url}
-                      className="text-zinc-500 hover:text-zinc-900"
+                      className="text-zinc-500 hover:text-zinc-300"
                     >
                       <ExternalLink className="h-4 w-4" />
                     </a>
@@ -399,11 +399,11 @@ function ProjectsPage() {
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {repo.language ? (
-                      <Badge className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700">
+                      <Badge className="rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-300">
                         {repo.language}
                       </Badge>
                     ) : null}
-                    <Badge className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700">
+                    <Badge className="rounded-full bg-zinc-900 px-3 py-1 text-xs text-zinc-300">
                       Updated: {new Date(repo.updated_at).toLocaleDateString()}
                     </Badge>
                   </div>
@@ -463,10 +463,10 @@ function CVPage() {
         subtitle="Academic profile, technical background, and downloadable CV."
       />
 
-      <div className="mb-8 grid gap-4 rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm md:grid-cols-[0.8fr_0.2fr]">
+      <div className="mb-8 grid gap-4 rounded-[2rem] border border-zinc-800 bg-zinc-950 p-6 shadow-sm md:grid-cols-[0.8fr_0.2fr]">
         <div>
           <div className="text-sm text-zinc-500">Profile</div>
-          <div className="mt-2 text-lg font-medium text-zinc-950">
+          <div className="mt-2 text-lg font-medium text-zinc-100">
             Economics, mathematics, and data science with a research emphasis on macro, trade, applied econometrics, and computational analysis.
           </div>
         </div>
@@ -474,7 +474,7 @@ function CVPage() {
           <a
             href="/Isha_Khan_CV.pdf"
             download
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-950 hover:bg-zinc-50"
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-100 hover:bg-zinc-900"
           >
             <Download className="h-4 w-4" />
             Download CV
@@ -488,14 +488,14 @@ function CVPage() {
           return (
             <Card
               key={section.title}
-              className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
+              className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 shadow-sm"
             >
               <CardContent className="p-6">
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-black">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <h3 className="text-xl font-semibold text-zinc-950">
+                  <h3 className="text-xl font-semibold text-zinc-100">
                     {section.title}
                   </h3>
                 </div>
@@ -504,7 +504,7 @@ function CVPage() {
                   {section.lines.map((line) => (
                     <div
                       key={line}
-                      className="rounded-2xl bg-zinc-50 px-4 py-3 text-sm leading-7 text-zinc-700"
+                      className="rounded-2xl bg-zinc-900 px-4 py-3 text-sm leading-7 text-zinc-300"
                     >
                       {line}
                     </div>
@@ -529,18 +529,18 @@ function ContactPage() {
       />
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <Card className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
+        <Card className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 shadow-sm">
           <CardContent className="space-y-5 p-6">
             <a
               href="mailto:toishakhan@gmail.com"
-              className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100"
+              className="flex items-center gap-4 rounded-2xl bg-zinc-900 p-4 transition hover:bg-zinc-800"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-black">
                 <Mail className="h-5 w-5" />
               </div>
               <div>
                 <div className="text-sm text-zinc-500">Email</div>
-                <div className="font-medium text-zinc-950">
+                <div className="font-medium text-zinc-100">
                   toishakhan@gmail.com
                 </div>
               </div>
@@ -548,14 +548,14 @@ function ContactPage() {
 
             <a
               href="https://github.com/Khanis29"
-              className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100"
+              className="flex items-center gap-4 rounded-2xl bg-zinc-900 p-4 transition hover:bg-zinc-800"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-black">
                 <Github className="h-5 w-5" />
               </div>
               <div>
                 <div className="text-sm text-zinc-500">GitHub</div>
-                <div className="font-medium text-zinc-950">
+                <div className="font-medium text-zinc-100">
                   github.com/Khanis29
                 </div>
               </div>
@@ -563,14 +563,14 @@ function ContactPage() {
 
             <a
               href="https://www.linkedin.com/in/isha-khan-27a86225a/"
-              className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100"
+              className="flex items-center gap-4 rounded-2xl bg-zinc-900 p-4 transition hover:bg-zinc-800"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-black">
                 <Linkedin className="h-5 w-5" />
               </div>
               <div>
                 <div className="text-sm text-zinc-500">LinkedIn</div>
-                <div className="font-medium text-zinc-950">
+                <div className="font-medium text-zinc-100">
                   Professional profile
                 </div>
               </div>
@@ -578,15 +578,15 @@ function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="rounded-[1.75rem] border border-zinc-200 bg-zinc-950 text-white shadow-sm">
+        <Card className="rounded-[1.75rem] border border-zinc-800 bg-zinc-950 shadow-sm">
           <CardContent className="p-8">
-            <div className="text-sm uppercase tracking-[0.25em] text-zinc-400">
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">
               Current emphasis
             </div>
-            <h3 className="mt-3 text-3xl font-semibold tracking-tight">
+            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-100">
               Empirical structure, reproducibility, and quantitative clarity.
             </h3>
-            <p className="mt-5 max-w-2xl text-sm leading-8 text-zinc-300">
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-zinc-400">
               I’m especially interested in macroeconomic data, international
               trade, manufacturing structure, machine learning, and text-based
               inference.
@@ -617,7 +617,7 @@ export default function Portfolio() {
   }, [active]);
 
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-900">
+    <div className="min-h-screen bg-black text-zinc-100">
       <TopNav active={active} setActive={setActive} />
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <AnimatePresence mode="wait">
@@ -632,7 +632,7 @@ export default function Portfolio() {
           </motion.div>
         </AnimatePresence>
       </main>
-      <footer className="border-t border-zinc-200 py-8 text-center text-sm text-zinc-500">
+      <footer className="border-t border-zinc-800 py-8 text-center text-sm text-zinc-500">
         © {new Date().getFullYear()} Isha Khan
       </footer>
     </div>
