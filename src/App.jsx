@@ -233,63 +233,66 @@ function HomePage({ setActive, dark }) {
           }`}
         />
 
-        <div className="relative grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
-          <div className="flex flex-col gap-8 md:flex-row md:items-center">
-            <img
-              src="/profile.jpg"
-              alt="Isha Khan"
-              className="h-40 w-40 rounded-full object-cover shadow-lg ring-1 ring-zinc-200 dark:ring-zinc-700 sm:h-48 sm:w-48"
-            />
+<div className="relative grid gap-8 lg:grid-cols-1">
+  <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+    <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="relative min-h-[420px] sm:min-h-[520px]">
+        <img
+          src="/profile.jpg"
+          alt="Isha Khan"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent" />
+      </div>
 
-            <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                <GraduationCap className="h-3.5 w-3.5" />
-                Quinnipiac University • Quantitative Economics, Mathematics, and Data Science
-              </div>
-
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-6xl">
-                Empirical research and quantitative analysis across economics, machine learning, and computational text methods.
-              </h1>
-
-              <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-600 dark:text-zinc-300 sm:text-lg">
-                I’m Isha Khan, a quantitatively oriented student focused on macroeconomics, international trade, applied econometrics, and data-driven research. My work emphasizes reproducible pipelines, strong empirical structure, and turning complex questions into interpretable evidence.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Research")}>
-                  Explore Research
-                </Button>
-                <Button variant="outline" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Projects")}>
-                  View Projects
-                </Button>
-                <Button variant="ghost" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("CV")}>
-                  Open CV
-                </Button>
-                <a
-                  href="/Isha_Khan_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-6 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
-                >
-                  View CV PDF
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <Card className="rounded-[2rem] border border-zinc-200 bg-zinc-50/80 shadow-none dark:border-zinc-700 dark:bg-zinc-800/80">
-            <CardContent className="p-6">
-              <div className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">Profile snapshot</div>
-              <div className="grid gap-4">
-                <Metric label="Flagship public projects" value="3" />
-                <Metric label="Core themes" value="Macro • Trade • NLP • ML" />
-                <Metric label="Approach" value="Replication-first, structured, and research-driven" />
-              </div>
-            </CardContent>
-          </Card>
+      <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
+        <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-zinc-100 backdrop-blur-sm">
+          <GraduationCap className="h-3.5 w-3.5" />
+          Quinnipiac University • Quantitative Economics, Mathematics, and Data Science
         </div>
-      </section>
 
+        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Empirical research and quantitative analysis across economics, machine learning, and computational text methods.
+        </h1>
+
+        <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-200 sm:text-lg">
+          I’m Isha Khan, a quantitatively oriented student focused on macroeconomics, international trade, applied econometrics, and data-driven research. My work emphasizes reproducible pipelines, strong empirical structure, and turning complex questions into interpretable evidence.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Research")}>
+            Explore Research
+          </Button>
+          <Button variant="outline" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Projects")}>
+            View Projects
+          </Button>
+          <Button variant="ghost" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("CV")}>
+            Open CV
+          </Button>
+          <a
+            href="/Isha_Khan_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-6 text-sm font-medium text-white transition hover:bg-white/10"
+          >
+            View CV PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Card className="rounded-[2rem] border border-zinc-200 bg-zinc-50/80 shadow-none dark:border-zinc-700 dark:bg-zinc-800/80">
+    <CardContent className="p-6">
+      <div className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">Profile snapshot</div>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <Metric label="Flagship public projects" value="3" />
+        <Metric label="Core themes" value="Macro • Trade • NLP • ML" />
+        <Metric label="Approach" value="Replication-first, structured, and research-driven" />
+      </div>
+    </CardContent>
+  </Card>
+</div>
       <section>
         <SectionHeader
           eyebrow="Fields"
