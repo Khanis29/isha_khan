@@ -6,23 +6,15 @@ import {
   Mail,
   FileText,
   ExternalLink,
-  Sun,
-  Moon,
-  CalendarRange,
   GraduationCap,
-  Briefcase,
-  BookOpen,
-  FolderKanban,
-  ScrollText,
-  Home,
   Download,
   Search,
+  BookOpen,
+  Briefcase,
   Code2,
   BarChart3,
   Brain,
   Newspaper,
-  ChevronRight,
-  Library,
 } from "lucide-react";
 
 const sections = ["Home", "Research", "Projects", "CV", "Contact"];
@@ -33,7 +25,7 @@ const workingPapers = [
     status: "Working Paper",
     year: "2025–2026",
     summary:
-      "Cross-country empirical analysis testing whether persistent trade deficits are systematically associated with faster manufacturing decline, using panel construction, threshold classification, Welch testing, and pooled regressions.",
+      "Cross-country empirical analysis testing whether persistent trade deficits are systematically associated with faster manufacturing decline using panel construction, threshold classification, Welch testing, and pooled regressions.",
     tags: ["International Trade", "Macroeconomics", "Econometrics"],
     link: "https://github.com/Khanis29/Trade_Deficit_Manufacturing",
   },
@@ -57,31 +49,12 @@ const workingPapers = [
   },
 ];
 
-const researchAgenda = [
-  {
-    title: "Trade deficits and industrial structure",
-    body:
-      "Empirical work on whether trade imbalance patterns are meaningfully connected to manufacturing decline, industrial composition, and long-run productive structure.",
-  },
-  {
-    title: "International capital flows and domestic production",
-    body:
-      "Research on outward investment, production reallocation, and the domestic consequences of international capital mobility.",
-  },
-  {
-    title: "Language, media, and policy salience",
-    body:
-      "Computational analysis of how news language shifts around political and geopolitical events, with attention to readability, framing, and public support.",
-  },
-];
-
 const featuredProjects = [
   {
     title: "Trade Deficit & Manufacturing Repository",
     subtitle: "Replication-first macroeconomic research pipeline",
     description:
-      "A structured empirical repository that builds a cross-country panel, engineers manufacturing and trade classifications, runs threshold-based tests, pooled regressions, and generates publication-ready outputs.",
-    category: "Economics",
+      "Cross-country panel construction, classification rules, pooled regressions, and publication-ready outputs.",
     link: "https://github.com/Khanis29/Trade_Deficit_Manufacturing",
     icon: BarChart3,
   },
@@ -89,8 +62,7 @@ const featuredProjects = [
     title: "NLP News Analysis",
     subtitle: "Event-based text analysis using NYT coverage",
     description:
-      "A Python NLP pipeline that collects event-window article data, scrapes text, engineers readability and lexical-rarity features, estimates pre/post models, and produces reproducible figures and tables.",
-    category: "NLP",
+      "A reproducible Python NLP pipeline for readability, lexical rarity, event windows, and pre/post analysis.",
     link: "https://github.com/Khanis29/NLP_News_Analysis",
     icon: Newspaper,
   },
@@ -98,43 +70,10 @@ const featuredProjects = [
     title: "Manufacturing Share ML Pipeline",
     subtitle: "State-level predictive modeling",
     description:
-      "Machine learning workflow for manufacturing-share forecasting using PCA, logistic regression, decision trees, linear regression, and Lasso-based feature selection.",
-    category: "Machine Learning",
+      "PCA, logistic regression, decision trees, linear regression, and Lasso for manufacturing-share prediction.",
     link: "#",
     icon: Brain,
   },
-];
-
-const timeline = [
-  {
-    date: "2025",
-    title: "Trade and manufacturing research pipeline built",
-    body:
-      "Constructed a public replication repository around cross-country trade deficits and manufacturing outcomes using R-based empirical workflow design.",
-  },
-  {
-    date: "2025–2026",
-    title: "Investments internship and applied modeling work",
-    body:
-      "Applied quantitative analysis in a finance setting while building faster budgeting and reporting workflows and expanding applied empirical research experience.",
-  },
-  {
-    date: "2026",
-    title: "NLP and machine learning portfolio expansion",
-    body:
-      "Built public repositories in NLP and state-level predictive modeling to complement macroeconomic and econometric research work.",
-  },
-];
-
-const courseClusters = [
-  "Quantitative Economics",
-  "Mathematics",
-  "Data Science",
-  "Econometrics",
-  "Machine Learning",
-  "International Trade",
-  "Dynamic Macroeconomics",
-  "Probability & Statistics",
 ];
 
 function Card({ className = "", children }) {
@@ -145,49 +84,36 @@ function CardContent({ className = "", children }) {
   return <div className={className}>{children}</div>;
 }
 
-function Button({ className = "", variant = "default", children, ...props }) {
-  const variantClasses =
-    variant === "outline"
-      ? "border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
-      : variant === "ghost"
-      ? "bg-transparent text-zinc-900 hover:bg-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-800"
-      : "bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200";
-
-  return (
-    <button
-      className={`${variantClasses} inline-flex items-center justify-center transition ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}
-
 function Badge({ className = "", children }) {
   return <span className={className}>{children}</span>;
 }
 
 function SectionHeader({ eyebrow, title, subtitle }) {
   return (
-    <div className="mb-8">
-      <div className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500 dark:text-zinc-400">{eyebrow}</div>
-      <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">{title}</h2>
-      {subtitle ? <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-600 dark:text-zinc-300 sm:text-base">{subtitle}</p> : null}
+    <div className="mb-10">
+      <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
+        {eyebrow}
+      </div>
+      <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+        {title}
+      </h2>
+      {subtitle ? (
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-600 sm:text-base">
+          {subtitle}
+        </p>
+      ) : null}
     </div>
   );
 }
 
-function TopNav({ active, setActive, dark, setDark }) {
+function TopNav({ active, setActive }) {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-950 text-white shadow-sm dark:bg-white dark:text-zinc-950">
-            <span className="text-sm font-semibold">IK</span>
-          </div>
-          <div>
-            <div className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">Isha Khan</div>
-            <div className="text-xs text-zinc-500 dark:text-zinc-400">Economics • Mathematics • Data Science</div>
+    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div>
+          <div className="text-sm font-semibold text-zinc-950">Isha Khan</div>
+          <div className="text-xs text-zinc-500">
+            Economics • Mathematics • Data Science
           </div>
         </div>
 
@@ -200,321 +126,108 @@ function TopNav({ active, setActive, dark, setDark }) {
                 onClick={() => setActive(s)}
                 className={`rounded-full px-4 py-2 text-sm transition ${
                   isActive
-                    ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"
-                    : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+                    ? "bg-zinc-950 text-white"
+                    : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950"
                 }`}
               >
                 {s}
               </button>
             );
           })}
-          <button
-            onClick={() => setDark((v) => !v)}
-            className="ml-2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
-            aria-label="Toggle dark mode"
-          >
-            {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
         </div>
       </div>
     </header>
   );
 }
 
-function HomePage({ setActive, dark }) {
+function HomePage({ setActive }) {
   return (
     <div className="space-y-16">
-
-      <section className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:p-8">
-
-        <div
-          className={`absolute inset-0 ${
-            dark
-              ? "bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_35%)]"
-              : "bg-[radial-gradient(circle_at_top_right,rgba(24,24,27,0.07),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(24,24,27,0.05),transparent_35%)]"
-          }`}
-        />
-
-        <div className="relative grid gap-8">
-
-          {/* HERO BANNER */}
-          <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
-
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-
-              {/* PHOTO */}
-              <div className="relative min-h-[520px] sm:min-h-[620px]">
-                <img
-                  src="/profile.jpg"
-                  alt="Isha Khan"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
-              </div>
-
-
-              {/* TEXT SIDE */}
-              <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
-
-                <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-zinc-100 backdrop-blur-sm">
-                  <GraduationCap className="h-3.5 w-3.5" />
-                  Quinnipiac University • Quantitative Economics, Mathematics, and Data Science
-                </div>
-
-                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  Empirical research and quantitative analysis across economics, machine learning, and computational text methods.
-                </h1>
-
-                <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-200 sm:text-lg">
-                  I’m Isha Khan, a quantitatively oriented student focused on macroeconomics, international trade, applied econometrics, and data-driven research. My work emphasizes reproducible pipelines, strong empirical structure, and turning complex questions into interpretable evidence.
-                </p>
-
-                {/* BUTTONS */}
-                <div className="mt-8 flex flex-wrap gap-3">
-
-                  <Button
-                    className="rounded-full px-5 py-6 text-sm"
-                    onClick={() => setActive("Research")}
-                  >
-                    Explore Research
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    className="rounded-full px-5 py-6 text-sm"
-                    onClick={() => setActive("Projects")}
-                  >
-                    View Projects
-                  </Button>
-
-                  <Button
-                    variant="ghost"
-                    className="rounded-full px-5 py-6 text-sm"
-                    onClick={() => setActive("CV")}
-                  >
-                    Open CV
-                  </Button>
-
-                  <a
-                    href="/Isha_Khan_CV.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-6 text-sm font-medium text-white transition hover:bg-white/10"
-                  >
-                    View CV PDF
-                  </a>
-
-                </div>
-              </div>
-            </div>
+      <section className="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="overflow-hidden rounded-[2rem]">
+            <img
+              src="/profile.jpg"
+              alt="Isha Khan"
+              className="h-[420px] w-full object-cover sm:h-[520px]"
+            />
           </div>
 
-
-          {/* PROFILE SNAPSHOT CARD */}
-          <Card className="rounded-[2rem] border border-zinc-200 bg-zinc-50/80 shadow-none dark:border-zinc-700 dark:bg-zinc-800/80">
-            <CardContent className="p-6">
-
-              <div className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                Profile snapshot
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-3">
-
-                <Metric
-                  label="Flagship public projects"
-                  value="3"
-                />
-
-                <Metric
-                  label="Core themes"
-                  value="Macro • Trade • NLP • ML"
-                />
-
-                <Metric
-                  label="Approach"
-                  value="Replication-first, structured, and research-driven"
-                />
-
-              </div>
-
-            </CardContent>
-          </Card>
-
-        </div>
-      </section>
-
-
-      {/* AREAS OF FOCUS */}
-      <section>
-        <SectionHeader
-          eyebrow="Fields"
-          title="Primary areas of focus"
-          subtitle="A portfolio built around quantitative rigor, reproducible workflows, and policy-relevant empirical questions."
-        />
-
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {courseClusters.map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-zinc-200 bg-white px-4 py-4 text-sm text-zinc-700 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200"
-            >
-              {item}
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600">
+              <GraduationCap className="h-3.5 w-3.5" />
+              Quinnipiac University
             </div>
-          ))}
-        </div>
-      </section>
 
+            <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl">
+              Isha Khan
+            </h1>
 
-      {/* RESEARCH AGENDA */}
-      <section>
-        <SectionHeader
-          eyebrow="Research Agenda"
-          title="Current research direction"
-          subtitle="Questions that sit at the center of my recent project work and future academic interests."
-        />
+            <p className="mt-4 text-lg text-zinc-600">
+              Economics, mathematics, and data science.
+            </p>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {researchAgenda.map((item) => (
-            <Card
-              key={item.title}
-              className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
-            >
-              <CardContent className="p-6">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-600">
+              I build empirical research projects in macroeconomics,
+              international trade, machine learning, and computational text
+              analysis.
+            </p>
 
-                <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
-                  <Library className="h-5 w-5" />
-                </div>
-
-                <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
-                  {item.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-                  {item.body}
-                </p>
-
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-
-      {/* FEATURED PROJECTS */}
-      <section>
-        <SectionHeader
-          eyebrow="Featured"
-          title="Selected projects"
-          subtitle="Public repositories designed around clear empirical pipelines and reproducible outputs."
-        />
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          {featuredProjects.map((project) => {
-            const Icon = project.icon;
-
-            return (
-              <Card
-                key={project.title}
-                className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <button
+                onClick={() => setActive("Research")}
+                className="rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
               >
-                <CardContent className="p-6">
+                Research
+              </button>
 
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
-                    <Icon className="h-5 w-5" />
-                  </div>
+              <button
+                onClick={() => setActive("Projects")}
+                className="rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+              >
+                Projects
+              </button>
 
-                  <div className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
-                    {project.title}
-                  </div>
+              <a
+                href="/Isha_Khan_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+              >
+                View CV
+              </a>
+            </div>
 
-                  <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                    {project.subtitle}
-                  </div>
-
-                  <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-5 inline-flex rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    {project.category}
-                  </div>
-
-                  <div className="mt-6 flex items-center justify-between">
-
-                    <button
-                      className="inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700 dark:text-zinc-50 dark:hover:text-zinc-300"
-                      onClick={() => setActive("Projects")}
-                    >
-                      Learn more
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
-
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                    >
-                      Repo
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
-
-                  </div>
-
-                </CardContent>
-              </Card>
-            );
-          })}
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["Macroeconomics", "International Trade", "Machine Learning"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700"
+                  >
+                    {item}
+                  </span>
+                )
+              )}
+            </div>
+          </div>
         </div>
       </section>
-
-
-      {/* TIMELINE */}
-      <section>
-        <SectionHeader
-          eyebrow="Timeline"
-          title="Research and project timeline"
-          subtitle="A compact view of how the portfolio has developed across research, applied work, and public repositories."
-        />
-
-        <div className="space-y-4">
-          {timeline.map((item) => (
-            <Card
-              key={item.title}
-              className="rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
-            >
-              <CardContent className="grid gap-4 p-6 md:grid-cols-[0.18fr_0.82fr]">
-
-                <div className="flex items-start gap-3 text-zinc-500 dark:text-zinc-400">
-                  <CalendarRange className="mt-1 h-4 w-4" />
-                  <span className="text-sm font-medium">{item.date}</span>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
-                    {item.body}
-                  </p>
-                </div>
-
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
     </div>
   );
 }
+
 function ResearchPage() {
   const [query, setQuery] = useState("");
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return workingPapers;
     return workingPapers.filter((p) =>
-      [p.title, p.status, p.summary, ...(p.tags || [])].join(" ").toLowerCase().includes(q)
+      [p.title, p.status, p.summary, ...(p.tags || [])]
+        .join(" ")
+        .toLowerCase()
+        .includes(q)
     );
   }, [query]);
 
@@ -523,40 +236,58 @@ function ResearchPage() {
       <SectionHeader
         eyebrow="Research"
         title="Working papers and research projects"
-        subtitle="Current project papers and research-oriented work across macroeconomics, trade, NLP, and predictive modeling."
+        subtitle="Current project papers and research-oriented work."
       />
 
-      <div className="mb-8 flex max-w-md items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="mb-8 flex max-w-md items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 shadow-sm">
         <Search className="h-4 w-4 text-zinc-400" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search papers or topics"
-          className="w-full bg-transparent text-sm outline-none placeholder:text-zinc-400 dark:text-zinc-100"
+          className="w-full bg-transparent text-sm outline-none placeholder:text-zinc-400"
         />
       </div>
 
       <div className="grid gap-5">
         {filtered.map((paper) => (
-          <Card key={paper.title} className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <Card
+            key={paper.title}
+            className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
+          >
             <CardContent className="p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    <ScrollText className="h-3.5 w-3.5" />
+                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-500">
+                    <BookOpen className="h-3.5 w-3.5" />
                     {paper.status}
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">{paper.title}</h3>
-                  <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{paper.year}</div>
+                  <h3 className="text-2xl font-semibold tracking-tight text-zinc-950">
+                    {paper.title}
+                  </h3>
+                  <div className="mt-1 text-sm text-zinc-500">{paper.year}</div>
                 </div>
-                <a href={paper.link} className="inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700 dark:text-zinc-50 dark:hover:text-zinc-300">
+
+                <a
+                  href={paper.link}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700"
+                >
                   Related repo <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
-              <p className="mt-5 text-sm leading-8 text-zinc-600 dark:text-zinc-300">{paper.summary}</p>
+
+              <p className="mt-5 text-sm leading-8 text-zinc-600">
+                {paper.summary}
+              </p>
+
               <div className="mt-5 flex flex-wrap gap-2">
                 {paper.tags.map((tag) => (
-                  <Badge key={tag} className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">{tag}</Badge>
+                  <Badge
+                    key={tag}
+                    className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700"
+                  >
+                    {tag}
+                  </Badge>
                 ))}
               </div>
             </CardContent>
@@ -592,23 +323,37 @@ function ProjectsPage() {
     <div>
       <SectionHeader
         eyebrow="Projects"
-        title="Technical portfolio and repositories"
-        subtitle="Featured empirical and computational projects, plus live GitHub repository cards pulled directly from the public profile."
+        title="Projects and repositories"
+        subtitle="Selected empirical and computational work."
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
         {featuredProjects.map((project) => {
           const Icon = project.icon;
           return (
-            <Card key={project.title} className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+            <Card
+              key={project.title}
+              className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
+            >
               <CardContent className="p-6">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-950 text-white">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-xl font-semibold text-zinc-950 dark:text-zinc-50">{project.title}</h3>
-                <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{project.subtitle}</div>
-                <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300">{project.description}</p>
-                <a href={project.link} className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700 dark:text-zinc-50 dark:hover:text-zinc-300">
+
+                <h3 className="text-xl font-semibold text-zinc-950">
+                  {project.title}
+                </h3>
+                <div className="mt-1 text-sm text-zinc-500">
+                  {project.subtitle}
+                </div>
+                <p className="mt-4 text-sm leading-7 text-zinc-600">
+                  {project.description}
+                </p>
+
+                <a
+                  href={project.link}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700"
+                >
                   View repository <ExternalLink className="h-4 w-4" />
                 </a>
               </CardContent>
@@ -620,28 +365,47 @@ function ProjectsPage() {
       <div className="mt-12">
         <SectionHeader
           eyebrow="GitHub"
-          title="Live repository feed"
-          subtitle="Recent public repositories pulled dynamically from GitHub."
+          title="Recent repositories"
+          subtitle="Live public repositories pulled from GitHub."
         />
+
         {loading ? (
-          <div className="text-sm text-zinc-500 dark:text-zinc-400">Loading repositories…</div>
+          <div className="text-sm text-zinc-500">Loading repositories…</div>
         ) : (
           <div className="grid gap-5 md:grid-cols-2">
             {repos.slice(0, 6).map((repo) => (
-              <Card key={repo.id} className="rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+              <Card
+                key={repo.id}
+                className="rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm"
+              >
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">{repo.name}</h3>
-                      <p className="mt-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">{repo.description || "Public repository"}</p>
+                      <h3 className="text-lg font-semibold text-zinc-950">
+                        {repo.name}
+                      </h3>
+                      <p className="mt-2 text-sm leading-7 text-zinc-600">
+                        {repo.description || "Public repository"}
+                      </p>
                     </div>
-                    <a href={repo.html_url} className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
+
+                    <a
+                      href={repo.html_url}
+                      className="text-zinc-500 hover:text-zinc-900"
+                    >
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </div>
+
                   <div className="mt-4 flex flex-wrap gap-2">
-                    {repo.language ? <Badge className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">{repo.language}</Badge> : null}
-                    <Badge className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">Updated: {new Date(repo.updated_at).toLocaleDateString()}</Badge>
+                    {repo.language ? (
+                      <Badge className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700">
+                        {repo.language}
+                      </Badge>
+                    ) : null}
+                    <Badge className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-700">
+                      Updated: {new Date(repo.updated_at).toLocaleDateString()}
+                    </Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -696,20 +460,22 @@ function CVPage() {
       <SectionHeader
         eyebrow="CV"
         title="Curriculum vitae"
-        subtitle="Academic profile, technical skills, research direction, and downloadable materials."
+        subtitle="Academic profile, technical background, and downloadable CV."
       />
 
-      <div className="mb-8 grid gap-4 rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm md:grid-cols-[0.8fr_0.2fr] dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="mb-8 grid gap-4 rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm md:grid-cols-[0.8fr_0.2fr]">
         <div>
-          <div className="text-sm text-zinc-500 dark:text-zinc-400">Profile</div>
-          <div className="mt-2 text-lg font-medium text-zinc-950 dark:text-zinc-50">Economics, mathematics, and data science with a research emphasis on macro, trade, applied econometrics, and computational analysis.</div>
+          <div className="text-sm text-zinc-500">Profile</div>
+          <div className="mt-2 text-lg font-medium text-zinc-950">
+            Economics, mathematics, and data science with a research emphasis on macro, trade, applied econometrics, and computational analysis.
+          </div>
         </div>
         <div className="flex items-center justify-start md:justify-end">
           <a
-  href="/Isha_Khan_CV.pdf"
-  download
-  className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-950 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800"
->
+            href="/Isha_Khan_CV.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-950 hover:bg-zinc-50"
+          >
             <Download className="h-4 w-4" />
             Download CV
           </a>
@@ -720,17 +486,26 @@ function CVPage() {
         {cvSections.map((section) => {
           const Icon = section.icon;
           return (
-            <Card key={section.title} className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+            <Card
+              key={section.title}
+              className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
+            >
               <CardContent className="p-6">
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-950 text-white">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <h3 className="text-xl font-semibold text-zinc-950 dark:text-zinc-50">{section.title}</h3>
+                  <h3 className="text-xl font-semibold text-zinc-950">
+                    {section.title}
+                  </h3>
                 </div>
+
                 <div className="space-y-3">
                   {section.lines.map((line) => (
-                    <div key={line} className="rounded-2xl bg-zinc-50 px-4 py-3 text-sm leading-7 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                    <div
+                      key={line}
+                      className="rounded-2xl bg-zinc-50 px-4 py-3 text-sm leading-7 text-zinc-700"
+                    >
                       {line}
                     </div>
                   ))}
@@ -749,50 +524,72 @@ function ContactPage() {
     <div>
       <SectionHeader
         eyebrow="Contact"
-        title="Connect and collaborate"
-        subtitle="For research opportunities, project discussions, collaboration, or academic inquiries."
+        title="Contact"
+        subtitle="Research opportunities, collaboration, and academic inquiries."
       />
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <Card className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+        <Card className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm">
           <CardContent className="space-y-5 p-6">
-            <a href="mailto:toishakhan@gmail.com" className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"><Mail className="h-5 w-5" /></div>
+            <a
+              href="mailto:toishakhan@gmail.com"
+              className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+                <Mail className="h-5 w-5" />
+              </div>
               <div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400">Email</div>
-                <div className="font-medium text-zinc-950 dark:text-zinc-50">toishakhan@gmail.com</div>
+                <div className="text-sm text-zinc-500">Email</div>
+                <div className="font-medium text-zinc-950">
+                  toishakhan@gmail.com
+                </div>
               </div>
             </a>
-            <a href="https://github.com/Khanis29" className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"><Github className="h-5 w-5" /></div>
+
+            <a
+              href="https://github.com/Khanis29"
+              className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+                <Github className="h-5 w-5" />
+              </div>
               <div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400">GitHub</div>
-                <div className="font-medium text-zinc-950 dark:text-zinc-50">github.com/Khanis29</div>
+                <div className="text-sm text-zinc-500">GitHub</div>
+                <div className="font-medium text-zinc-950">
+                  github.com/Khanis29
+                </div>
               </div>
             </a>
-            <a href="https://www.linkedin.com/in/isha-khan-27a86225a/" className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"><Linkedin className="h-5 w-5" /></div>
-              <div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400">LinkedIn</div>
-                <div className="font-medium text-zinc-950 dark:text-zinc-50">Professional profile</div>
+
+            <a
+              href="https://www.linkedin.com/in/isha-khan-27a86225a/"
+              className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white">
+                <Linkedin className="h-5 w-5" />
               </div>
-            </a>
-            <a href="#" className="flex items-center gap-4 rounded-2xl bg-zinc-50 p-4 transition hover:bg-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"><FileText className="h-5 w-5" /></div>
               <div>
-                <div className="text-sm text-zinc-500 dark:text-zinc-400">Google Scholar / SSRN</div>
-                <div className="font-medium text-zinc-950 dark:text-zinc-50">Add once available</div>
+                <div className="text-sm text-zinc-500">LinkedIn</div>
+                <div className="font-medium text-zinc-950">
+                  Professional profile
+                </div>
               </div>
             </a>
           </CardContent>
         </Card>
 
-        <Card className="rounded-[1.75rem] border border-zinc-200 bg-zinc-950 text-white shadow-sm dark:border-zinc-800 dark:bg-white dark:text-zinc-950">
+        <Card className="rounded-[1.75rem] border border-zinc-200 bg-zinc-950 text-white shadow-sm">
           <CardContent className="p-8">
-            <div className="text-sm uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">Current emphasis</div>
-            <h3 className="mt-3 text-3xl font-semibold tracking-tight">Empirical structure, reproducibility, and quantitative clarity.</h3>
-            <p className="mt-5 max-w-2xl text-sm leading-8 text-zinc-300 dark:text-zinc-700">
-              I’m particularly interested in research and analytical work involving macroeconomic data, international trade, manufacturing structure, applied machine learning, and text-based inference. I care most about building clean pipelines that make difficult questions empirically legible.
+            <div className="text-sm uppercase tracking-[0.25em] text-zinc-400">
+              Current emphasis
+            </div>
+            <h3 className="mt-3 text-3xl font-semibold tracking-tight">
+              Empirical structure, reproducibility, and quantitative clarity.
+            </h3>
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-zinc-300">
+              I’m especially interested in macroeconomic data, international
+              trade, manufacturing structure, machine learning, and text-based
+              inference.
             </p>
           </CardContent>
         </Card>
@@ -801,24 +598,8 @@ function ContactPage() {
   );
 }
 
-function Metric({ label, value }) {
-  return (
-    <div>
-      <div className="text-2xl font-semibold text-zinc-950 dark:text-zinc-50">{value}</div>
-      <div className="text-sm text-zinc-600 dark:text-zinc-300">{label}</div>
-    </div>
-  );
-}
-
 export default function Portfolio() {
   const [active, setActive] = useState("Home");
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (dark) root.classList.add("dark");
-    else root.classList.remove("dark");
-  }, [dark]);
 
   const page = useMemo(() => {
     switch (active) {
@@ -831,28 +612,28 @@ export default function Portfolio() {
       case "Contact":
         return <ContactPage />;
       default:
-        return <HomePage setActive={setActive} dark={dark} />;
+        return <HomePage setActive={setActive} />;
     }
-  }, [active, dark]);
+  }, [active]);
 
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-      <TopNav active={active} setActive={setActive} dark={dark} setDark={setDark} />
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <div className="min-h-screen bg-zinc-50 text-zinc-900">
+      <TopNav active={active} setActive={setActive} />
+      <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
           >
             {page}
           </motion.div>
         </AnimatePresence>
       </main>
-      <footer className="border-t border-zinc-200 py-8 text-center text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
-        © {new Date().getFullYear()} Isha Khan • Research portfolio
+      <footer className="border-t border-zinc-200 py-8 text-center text-sm text-zinc-500">
+        © {new Date().getFullYear()} Isha Khan
       </footer>
     </div>
   );
