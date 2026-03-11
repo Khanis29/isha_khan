@@ -226,8 +226,15 @@ function HomePage({ setActive, dark }) {
     <div className="space-y-16">
       <section className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:p-12">
         <div className={`absolute inset-0 ${dark ? "bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_35%)]" : "bg-[radial-gradient(circle_at_top_right,rgba(24,24,27,0.07),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(24,24,27,0.05),transparent_35%)]"}`} />
-        <div className="relative grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
-          <div>
+       <div className="relative grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+  <div className="flex flex-col gap-8 md:flex-row md:items-center">
+    <img
+      src="/profile.jpg"
+      alt="Isha Khan"
+      className="h-40 w-40 rounded-full object-cover shadow-lg ring-1 ring-zinc-200 dark:ring-zinc-700 sm:h-48 sm:w-48"
+    />
+
+    <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
               <GraduationCap className="h-3.5 w-3.5" />
               Quinnipiac University • Quantitative Economics, Mathematics, and Data Science
@@ -238,11 +245,21 @@ function HomePage({ setActive, dark }) {
             <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-600 dark:text-zinc-300 sm:text-lg">
               I’m Isha Khan, a quantitatively oriented student focused on macroeconomics, international trade, applied econometrics, and data-driven research. My work emphasizes reproducible pipelines, strong empirical structure, and turning complex questions into interpretable evidence.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Research")}>Explore Research</Button>
-              <Button variant="outline" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Projects")}>View Projects</Button>
-              <Button variant="ghost" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("CV")}>Open CV</Button>
-            </div>
+<div className="mt-8 flex flex-wrap gap-3">
+  <Button className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Research")}>Explore Research</Button>
+  <Button variant="outline" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Projects")}>View Projects</Button>
+  <Button variant="ghost" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("CV")}>Open CV</Button>
+  <a
+    href="/Isha_Khan_CV.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-6 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+  >
+    View CV PDF
+  </a>
+</div>
+    </div>
+  </div>
           </div>
 
           <Card className="rounded-[2rem] border border-zinc-200 bg-zinc-50/80 shadow-none dark:border-zinc-700 dark:bg-zinc-800/80">
@@ -554,7 +571,11 @@ function CVPage() {
           <div className="mt-2 text-lg font-medium text-zinc-950 dark:text-zinc-50">Economics, mathematics, and data science with a research emphasis on macro, trade, applied econometrics, and computational analysis.</div>
         </div>
         <div className="flex items-center justify-start md:justify-end">
-          <a href="/Resume.pdf" className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-950 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800">
+          <a
+  href="/Isha_Khan_CV.pdf"
+  download
+  className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-950 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800"
+>
             <Download className="h-4 w-4" />
             Download CV
           </a>
