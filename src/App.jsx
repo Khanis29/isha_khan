@@ -224,7 +224,9 @@ function TopNav({ active, setActive, dark, setDark }) {
 function HomePage({ setActive, dark }) {
   return (
     <div className="space-y-16">
-      <section className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:p-12">
+
+      <section className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 sm:p-8">
+
         <div
           className={`absolute inset-0 ${
             dark
@@ -233,72 +235,124 @@ function HomePage({ setActive, dark }) {
           }`}
         />
 
-<div className="relative grid gap-8 lg:grid-cols-1">
-  <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
-    <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="relative min-h-[420px] sm:min-h-[520px]">
-        <img
-          src="/profile.jpg"
-          alt="Isha Khan"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent" />
-      </div>
+        <div className="relative grid gap-8">
 
-      <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
-        <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-zinc-100 backdrop-blur-sm">
-          <GraduationCap className="h-3.5 w-3.5" />
-          Quinnipiac University • Quantitative Economics, Mathematics, and Data Science
+          {/* HERO BANNER */}
+          <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-950 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+
+              {/* PHOTO */}
+              <div className="relative min-h-[520px] sm:min-h-[620px]">
+                <img
+                  src="/profile.jpg"
+                  alt="Isha Khan"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
+              </div>
+
+
+              {/* TEXT SIDE */}
+              <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
+
+                <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-zinc-100 backdrop-blur-sm">
+                  <GraduationCap className="h-3.5 w-3.5" />
+                  Quinnipiac University • Quantitative Economics, Mathematics, and Data Science
+                </div>
+
+                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  Empirical research and quantitative analysis across economics, machine learning, and computational text methods.
+                </h1>
+
+                <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-200 sm:text-lg">
+                  I’m Isha Khan, a quantitatively oriented student focused on macroeconomics, international trade, applied econometrics, and data-driven research. My work emphasizes reproducible pipelines, strong empirical structure, and turning complex questions into interpretable evidence.
+                </p>
+
+                {/* BUTTONS */}
+                <div className="mt-8 flex flex-wrap gap-3">
+
+                  <Button
+                    className="rounded-full px-5 py-6 text-sm"
+                    onClick={() => setActive("Research")}
+                  >
+                    Explore Research
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    className="rounded-full px-5 py-6 text-sm"
+                    onClick={() => setActive("Projects")}
+                  >
+                    View Projects
+                  </Button>
+
+                  <Button
+                    variant="ghost"
+                    className="rounded-full px-5 py-6 text-sm"
+                    onClick={() => setActive("CV")}
+                  >
+                    Open CV
+                  </Button>
+
+                  <a
+                    href="/Isha_Khan_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-6 text-sm font-medium text-white transition hover:bg-white/10"
+                  >
+                    View CV PDF
+                  </a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          {/* PROFILE SNAPSHOT CARD */}
+          <Card className="rounded-[2rem] border border-zinc-200 bg-zinc-50/80 shadow-none dark:border-zinc-700 dark:bg-zinc-800/80">
+            <CardContent className="p-6">
+
+              <div className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                Profile snapshot
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+
+                <Metric
+                  label="Flagship public projects"
+                  value="3"
+                />
+
+                <Metric
+                  label="Core themes"
+                  value="Macro • Trade • NLP • ML"
+                />
+
+                <Metric
+                  label="Approach"
+                  value="Replication-first, structured, and research-driven"
+                />
+
+              </div>
+
+            </CardContent>
+          </Card>
+
         </div>
+      </section>
 
-        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Empirical research and quantitative analysis across economics, machine learning, and computational text methods.
-        </h1>
 
-        <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-200 sm:text-lg">
-          I’m Isha Khan, a quantitatively oriented student focused on macroeconomics, international trade, applied econometrics, and data-driven research. My work emphasizes reproducible pipelines, strong empirical structure, and turning complex questions into interpretable evidence.
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Research")}>
-            Explore Research
-          </Button>
-          <Button variant="outline" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("Projects")}>
-            View Projects
-          </Button>
-          <Button variant="ghost" className="rounded-full px-5 py-6 text-sm" onClick={() => setActive("CV")}>
-            Open CV
-          </Button>
-          <a
-            href="/Isha_Khan_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-6 text-sm font-medium text-white transition hover:bg-white/10"
-          >
-            View CV PDF
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <Card className="rounded-[2rem] border border-zinc-200 bg-zinc-50/80 shadow-none dark:border-zinc-700 dark:bg-zinc-800/80">
-    <CardContent className="p-6">
-      <div className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">Profile snapshot</div>
-      <div className="grid gap-4 sm:grid-cols-3">
-        <Metric label="Flagship public projects" value="3" />
-        <Metric label="Core themes" value="Macro • Trade • NLP • ML" />
-        <Metric label="Approach" value="Replication-first, structured, and research-driven" />
-      </div>
-    </CardContent>
-  </Card>
-</div>
+      {/* AREAS OF FOCUS */}
       <section>
         <SectionHeader
           eyebrow="Fields"
           title="Primary areas of focus"
           subtitle="A portfolio built around quantitative rigor, reproducible workflows, and policy-relevant empirical questions."
         />
+
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {courseClusters.map((item) => (
             <div
@@ -311,12 +365,15 @@ function HomePage({ setActive, dark }) {
         </div>
       </section>
 
+
+      {/* RESEARCH AGENDA */}
       <section>
         <SectionHeader
           eyebrow="Research Agenda"
           title="Current research direction"
           subtitle="Questions that sit at the center of my recent project work and future academic interests."
         />
+
         <div className="grid gap-5 lg:grid-cols-3">
           {researchAgenda.map((item) => (
             <Card
@@ -324,55 +381,85 @@ function HomePage({ setActive, dark }) {
               className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
             >
               <CardContent className="p-6">
+
                 <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
                   <Library className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-300">{item.body}</p>
+
+                <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
+                  {item.body}
+                </p>
+
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
+
+      {/* FEATURED PROJECTS */}
       <section>
         <SectionHeader
           eyebrow="Featured"
           title="Selected projects"
           subtitle="Public repositories designed around clear empirical pipelines and reproducible outputs."
         />
+
         <div className="grid gap-6 lg:grid-cols-3">
           {featuredProjects.map((project) => {
             const Icon = project.icon;
+
             return (
               <Card
                 key={project.title}
                 className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
               >
                 <CardContent className="p-6">
+
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <div className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">{project.title}</div>
-                  <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{project.subtitle}</div>
-                  <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300">{project.description}</p>
+
+                  <div className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
+                    {project.title}
+                  </div>
+
+                  <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                    {project.subtitle}
+                  </div>
+
+                  <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
+                    {project.description}
+                  </p>
+
                   <div className="mt-5 inline-flex rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
                     {project.category}
                   </div>
+
                   <div className="mt-6 flex items-center justify-between">
+
                     <button
                       className="inline-flex items-center gap-2 text-sm font-medium text-zinc-950 hover:text-zinc-700 dark:text-zinc-50 dark:hover:text-zinc-300"
                       onClick={() => setActive("Projects")}
                     >
-                      Learn more <ChevronRight className="h-4 w-4" />
+                      Learn more
+                      <ChevronRight className="h-4 w-4" />
                     </button>
+
                     <a
                       href={project.link}
                       className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                     >
-                      Repo <ExternalLink className="h-4 w-4" />
+                      Repo
+                      <ExternalLink className="h-4 w-4" />
                     </a>
+
                   </div>
+
                 </CardContent>
               </Card>
             );
@@ -380,12 +467,15 @@ function HomePage({ setActive, dark }) {
         </div>
       </section>
 
+
+      {/* TIMELINE */}
       <section>
         <SectionHeader
           eyebrow="Timeline"
           title="Research and project timeline"
           subtitle="A compact view of how the portfolio has developed across research, applied work, and public repositories."
         />
+
         <div className="space-y-4">
           {timeline.map((item) => (
             <Card
@@ -393,19 +483,28 @@ function HomePage({ setActive, dark }) {
               className="rounded-[1.5rem] border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
             >
               <CardContent className="grid gap-4 p-6 md:grid-cols-[0.18fr_0.82fr]">
+
                 <div className="flex items-start gap-3 text-zinc-500 dark:text-zinc-400">
                   <CalendarRange className="mt-1 h-4 w-4" />
                   <span className="text-sm font-medium">{item.date}</span>
                 </div>
+
                 <div>
-                  <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">{item.body}</p>
+                  <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-7 text-zinc-600 dark:text-zinc-300">
+                    {item.body}
+                  </p>
                 </div>
+
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
+
     </div>
   );
 }
