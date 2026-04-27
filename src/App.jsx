@@ -639,7 +639,7 @@ export default function Portfolio() {
   );
 }
 */}
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Github,
@@ -648,7 +648,6 @@ import {
   ExternalLink,
   GraduationCap,
   Download,
-  Search,
   BookOpen,
   Briefcase,
   Code2,
@@ -658,6 +657,12 @@ import {
 } from "lucide-react";
 
 const sections = ["Home", "Research", "Projects", "CV", "Contact"];
+
+function getSectionFromHash(hash) {
+  const normalized = (hash || "").replace("#", "").trim().toLowerCase();
+  const match = sections.find((section) => section.toLowerCase() === normalized);
+  return match || "Home";
+}
 
 const workingPapers = [
   {
@@ -746,28 +751,50 @@ function SectionHeader({ eyebrow, title, subtitle }) {
   );
 }
 
-function TopNav({ active, setActive }) {
+function TopNav({ active, onNavigate }) {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-zinc-50/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <div>
-          <div className="text-sm font-semibold text-zinc-900">Isha Khan</div>
-          <div className="text-xs text-zinc-500">
-            Quantitative Macroeconomics | Econometrics | Computational Methods
+      <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="text-sm font-semibold text-zinc-900">Isha Khan</div>
+            <div className="text-xs text-zinc-500">
+              Quantitative Macroeconomics | Econometrics | Computational
+              Methods
+            </div>
+          </div>
+
+          <div className="hidden items-center gap-2 md:flex">
+            {sections.map((s) => {
+              const isActive = active === s;
+              return (
+                <button
+                  key={s}
+                  onClick={() => onNavigate(s)}
+                  className={`rounded-full px-4 py-2 text-sm transition ${
+                    isActive
+                      ? "bg-zinc-900 text-white"
+                      : "text-zinc-600 hover:bg-white hover:text-zinc-900"
+                  }`}
+                >
+                  {s}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="mt-3 flex gap-2 overflow-x-auto pb-1 md:hidden">
           {sections.map((s) => {
             const isActive = active === s;
             return (
               <button
                 key={s}
-                onClick={() => setActive(s)}
-                className={`rounded-full px-4 py-2 text-sm transition ${
+                onClick={() => onNavigate(s)}
+                className={`shrink-0 rounded-full px-4 py-2 text-sm transition ${
                   isActive
                     ? "bg-zinc-900 text-white"
-                    : "text-zinc-600 hover:bg-white hover:text-zinc-900"
+                    : "bg-white text-zinc-600 hover:text-zinc-900"
                 }`}
               >
                 {s}
@@ -780,7 +807,7 @@ function TopNav({ active, setActive }) {
   );
 }
 
-function HomePage({ setActive }) {
+function HomePage({ onNavigate }) {
   return (
     <div className="space-y-16">
       <section className="rounded-[2rem] border border-zinc-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
@@ -823,14 +850,14 @@ function HomePage({ setActive }) {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <button
-                onClick={() => setActive("Research")}
+                onClick={() => onNavigate("Research")}
                 className="rounded-full bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
               >
                 Research
               </button>
 
               <button
-                onClick={() => setActive("Projects")}
+                onClick={() => onNavigate("Projects")}
                 className="rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
               >
                 Projects
@@ -869,19 +896,6 @@ function HomePage({ setActive }) {
 }
 
 function ResearchPage() {
-  const [query, setQuery] = useState("");
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return workingPapers;
-    return workingPapers.filter((p) =>
-      [p.title, p.status, p.summary, ...(p.tags || [])]
-        .join(" ")
-        .toLowerCase()
-        .includes(q)
-    );
-  }, [query]);
-
   return (
     <div>
       <SectionHeader
@@ -890,18 +904,8 @@ function ResearchPage() {
         subtitle="Current work in empirical macroeconomics, dynamic relationships, and time-series and panel methods."
       />
 
-      <div className="mb-8 flex max-w-md items-center gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 shadow-sm">
-        <Search className="h-4 w-4 text-zinc-400" />
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search papers or topics"
-          className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400"
-        />
-      </div>
-
       <div className="grid gap-5">
-        {filtered.map((paper) => (
+        {workingPapers.map((paper) => (
           <Card
             key={paper.title}
             className="rounded-[1.75rem] border border-zinc-200 bg-white shadow-sm"
@@ -1253,7 +1257,47 @@ function ContactPage() {
 }
 
 export default function Portfolio() {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState(() => {
+    if (typeof window === "undefined") return "Home";
+    return getSectionFromHash(window.location.hash);
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const syncFromHash = () => {
+      setActive(getSectionFromHash(window.location.hash));
+    };
+
+    if (!window.location.hash) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}#home`
+      );
+    }
+
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
+
+  const handleNavigate = useCallback((section) => {
+    if (typeof window === "undefined") {
+      setActive(section);
+      return;
+    }
+
+    const nextHash = `#${section.toLowerCase()}`;
+    if (window.location.hash === nextHash) {
+      setActive(section);
+      return;
+    }
+
+    window.location.hash = nextHash;
+  }, []);
 
   const page = useMemo(() => {
     switch (active) {
@@ -1266,13 +1310,13 @@ export default function Portfolio() {
       case "Contact":
         return <ContactPage />;
       default:
-        return <HomePage setActive={setActive} />;
+        return <HomePage onNavigate={handleNavigate} />;
     }
-  }, [active]);
+  }, [active, handleNavigate]);
 
   return (
     <div className="min-h-screen bg-zinc-100 text-zinc-900">
-      <TopNav active={active} setActive={setActive} />
+      <TopNav active={active} onNavigate={handleNavigate} />
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <AnimatePresence mode="wait">
           <motion.div
@@ -1292,3 +1336,4 @@ export default function Portfolio() {
     </div>
   );
 }
+
