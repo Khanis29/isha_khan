@@ -124,9 +124,6 @@ function Research() {
           </p>
 
           <div className="entry-links">
-            <ExternalTextLink href={links.tradeRepo}>
-              Code and replication files
-            </ExternalTextLink>
           </div>
         </article>
       </div>
