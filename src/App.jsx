@@ -123,11 +123,7 @@ function Research() {
             International trade · panel econometrics · cross-country data
           </p>
 
-          <div className="entry-links">
-            <ExternalTextLink href={links.tradeRepo}>
-              Code and replication files
-            </ExternalTextLink>
-          </div>
+
         </article>
       </div>
 
