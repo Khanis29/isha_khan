@@ -40,7 +40,7 @@ function Hero() {
       <div className="hero-copy">
         <p className="eyebrow">University of Rochester</p>
         <h1>Isha Khan</h1>
-        <p className="role">PhD Student in Economics</p>
+        <p className="role">Ph.D. Student in Economics</p>
 
         <p className="intro">
           I am a PhD student in Economics at the University of Rochester. My
@@ -50,9 +50,9 @@ function Hero() {
         </p>
 
         <p className="intro secondary-intro">
-          My current work is centered on empirical and quantitative questions in
-          macroeconomics, with particular interest in how economic mechanisms
-          show up in long-run and cross-country data.
+          My current work uses econometrics, computational economics, and
+          quantitative methods to study how economic mechanisms show up in
+          long-run and cross-country data.
         </p>
 
         <div className="hero-links" aria-label="Quick links">
@@ -65,7 +65,7 @@ function Hero() {
       </div>
 
       <figure className="portrait-wrap">
-        <img className="portrait" src="/profile.jpg" alt="Isha Khan" />
+        <img className="portrait" src="/profile.jpg" alt="Portrait of Isha Khan" />
         <figcaption>Department of Economics · University of Rochester</figcaption>
       </figure>
     </section>
@@ -124,6 +124,9 @@ function Research() {
           </p>
 
           <div className="entry-links">
+            <ExternalTextLink href={links.tradeRepo}>
+              Code and replication files
+            </ExternalTextLink>
           </div>
         </article>
       </div>
@@ -204,7 +207,7 @@ function CV() {
           <div className="cv-item">
             <div>
               <strong>University of Rochester</strong>
-              <span>PhD in Economics</span>
+              <span>Ph.D. in Economics</span>
             </div>
             <time>2026–present</time>
           </div>
